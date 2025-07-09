@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Auto Insurance Quote in 2 Minutes | Save Up to $500</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-bar {
+            background: #34495e;
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            width: 100%;
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .program-name {
+            font-weight: 600;
+            font-size: 1.1em;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px 20px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            color: #2980b9;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            font-weight: 400;
+        }
+
+        .quiz-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 1px solid #e8eaed;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #ecf0f1;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            width: 33%;
+            transition: width 0.4s ease;
+        }
+
+        .question-container {
+            padding: 50px 40px;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .question {
+            display: none;
+            text-align: center;
+            animation: slideIn 0.4s ease-out;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .question h2 {
+            font-size: 1.8em;
+            margin-bottom: 35px;
+            color: #2c3e50;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .options {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .option {
+            padding: 18px 25px;
+            background: #ffffff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1em;
+            font-weight: 500;
+            color: #2c3e50;
+            text-align: left;
+            position: relative;
+        }
+
+        .option:hover {
+            background: #f8f9fb;
+            border-color: #3498db;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 12px rgba(52, 152, 219, 0.15);
+        }
+
+        .option.selected {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .option.selected::after {
+            content: '✓';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .question h2 {
+                font-size: 1.5em;
+            }
+            
+            .question-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <div class="program-name">Auto Insurance Reduction Program</div>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 id="headline">My Car Insurance Dropped From $180 to $31/Month</h1>
+            <p id="subheadline">See what your rate could be with this quick quiz</p>
+        </div>
+
+        <div class="quiz-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="question-container">
+                <!-- Question 1 -->
+                <div class="question active" id="q1">
+                    <h2>Are you currently insured?</h2>
+                    <div class="options">
+                        <div class="option" onclick="selectAnswer('yes', 1)">
+                            ✅ Yes, I have auto insurance
+                        </div>
+                        <div class="option" onclick="selectAnswer('no', 1)">
+                            ❌ No, I need new coverage
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question" id="q2">
+                    <h2>Are you a homeowner?</h2>
+                    <div class="options">
+                        <div class="option" onclick="selectAnswer('homeowner', 2)">
+                            🏠 Homeowner
+                        </div>
+                        <div class="option" onclick="selectAnswer('renter', 2)">
+                            🏢 Renter
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question" id="q3">
+                    <h2>What is your age group?</h2>
+                    <div class="options">
+                        <div class="option" onclick="selectAnswer('18-24', 3)">
+                            🎓 18 to 24
+                        </div>
+                        <div class="option" onclick="selectAnswer('25-34', 3)">
+                            💼 25 to 34
+                        </div>
+                        <div class="option" onclick="selectAnswer('35-44', 3)">
+                            👨‍💼 35 to 44
+                        </div>
+                        <div class="option" onclick="selectAnswer('45-54', 3)">
+                            👩‍💼 45 to 54
+                        </div>
+                        <div class="option" onclick="selectAnswer('55-64', 3)">
+                            🎯 55 to 64
+                        </div>
+                        <div class="option" onclick="selectAnswer('65+', 3)">
+                            🌟 65+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Super simple variables
+        let answers = {};
+        
+        // Your affiliate URLs - UPDATE THESE
+        const offer1 = 'https://your-affiliate-network.com/offer1';
+        const offer2 = 'https://your-affiliate-network.com/offer2';
+
+        function selectAnswer(answer, questionNum) {
+            console.log('Answer selected:', answer, 'for question', questionNum);
+            
+            // Store the answer
+            answers['q' + questionNum] = answer;
+            
+            // Highlight the selected option
+            const currentQuestion = document.getElementById('q' + questionNum);
+            const options = currentQuestion.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            event.target.classList.add('selected');
+            
+            // Move to next question or finish
+            setTimeout(() => {
+                if (questionNum === 1) {
+                    goToQuestion2();
+                } else if (questionNum === 2) {
+                    goToQuestion3();
+                } else if (questionNum === 3) {
+                    finishQuiz(answer);
+                }
+            }, 500);
+        }
+
+        function goToQuestion2() {
+            console.log('Going to question 2');
+            document.getElementById('q1').classList.remove('active');
+            document.getElementById('q2').classList.add('active');
+            document.getElementById('progressFill').style.width = '66%';
+        }
+
+        function goToQuestion3() {
+            console.log('Going to question 3');
+            document.getElementById('q2').classList.remove('active');
+            document.getElementById('q3').classList.add('active');
+            document.getElementById('progressFill').style.width = '100%';
+        }
+
+        function finishQuiz(ageGroup) {
+            console.log('Quiz finished! Age group:', ageGroup);
+            console.log('All answers:', answers);
+            
+            // Choose offer based on age
+            let redirectUrl;
+            if (ageGroup === '65+') {
+                redirectUrl = offer2;
+            } else {
+                redirectUrl = offer1;
+            }
+            
+            console.log('Redirecting to:', redirectUrl);
+            
+            // Show loading message
+            document.getElementById('q3').innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                    <div style="display: inline-block; padding: 20px 30px; background: #e8f5e8; border: 2px solid #27ae60; border-radius: 10px; margin-bottom: 25px;">
+                        <h2 style="color: #27ae60; margin: 0; font-size: 1.6em;">✓ Perfect! You're pre-approved for 8 discount rates</h2>
+                    </div>
+                    <p style="margin: 20px 0; font-size: 1.1em; color: #7f8c8d; max-width: 400px; margin-left: auto; margin-right: auto;">Just confirm a few details to activate your savings.</p>
+                    <div style="margin: 30px 0;">
+                        <div style="border: 3px solid #3498db; border-radius: 50%; width: 50px; height: 50px; margin: 0 auto; display: flex; align-items: center; justify-content: center; animation: spin 1s linear infinite;">
+                            <div style="width: 20px; height: 20px; background: #3498db; border-radius: 50%;"></div>
+                        </div>
+                    </div>
+                    <p style="color: #95a5a6; font-size: 0.9em;">Connecting you to our secure form...</p>
+                </div>
+            `;
+            
+            // Redirect after 2 seconds
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 2000);
+        }
+
+        // Set headlines based on URL parameter
+        function setHeadlines() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const variation = urlParams.get('var');
+            
+            if (variation === 'B') {
+                document.getElementById('headline').innerHTML = 'I Cut My Car Insurance From $205 to $29/Month';
+                document.getElementById('subheadline').innerHTML = 'Find out how much you could save in 60 seconds.';
+            } else {
+                // Default to Variation A
+                document.getElementById('headline').innerHTML = 'My Car Insurance Dropped From $180 to $31/Month';
+                document.getElementById('subheadline').innerHTML = 'See what your rate could be with this quick quiz.';
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded');
+            setHeadlines();
+        });
+    </script>
+</body>
+</html>
