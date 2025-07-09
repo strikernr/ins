@@ -34,7 +34,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #f0f0f0;
+            background: white;
             min-height: 100vh;
             color: #333;
             line-height: 1.4;
@@ -48,7 +48,7 @@
             text-align: center;
             padding: 8px 0;
             width: 100%;
-            font-size: 0.9em;
+            font-size: 1.1em;
             font-weight: normal;
         }
 
@@ -58,7 +58,6 @@
             padding: 20px;
             background: white;
             margin-top: 20px;
-            border: 1px solid #ddd;
         }
 
         .header {
@@ -67,7 +66,7 @@
         }
 
         .header h1 {
-            font-size: 1.8em;
+            font-size: 2.2em;
             margin-bottom: 15px;
             color: #333;
             font-weight: bold;
@@ -197,7 +196,6 @@
 
         .option {
             padding: 15px 20px;
-            background: #f8f9fa;
             border: 2px solid #ddd;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -207,15 +205,62 @@
             text-align: center;
         }
 
-        .option:hover {
-            background: #e3f2fd;
-            border-color: #2196F3;
+        /* Green for positive answers (Yes, Homeowner, etc.) - DEFAULT STATE */
+        .option.positive {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
         }
 
-        .option.selected {
+        .option.positive:hover {
+            background: #c3e6cb;
+            border-color: #1e7e34;
+        }
+
+        .option.positive.selected {
             background: #28a745;
+            border-color: #1e7e34;
             color: white;
-            border-color: #28a745;
+            font-weight: 500;
+        }
+
+        /* Red for negative answers (No, Renter, etc.) - DEFAULT STATE */
+        .option.negative {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .option.negative:hover {
+            background: #f1b0b7;
+            border-color: #bd2130;
+        }
+
+        .option.negative.selected {
+            background: #dc3545;
+            border-color: #bd2130;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Age options - keep neutral */
+        .option.neutral {
+            background: #f8f9fa;
+            border-color: #ddd;
+        }
+
+        .option.neutral:hover {
+            background: #e3f2fd;
+            border-color: #2196F3;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .option.neutral.selected {
+            background: #2196F3;
+            border-color: #1976D2;
+            color: white;
+            font-weight: 500;
         }
 
         .footer {
@@ -323,7 +368,7 @@
             }
             
             .header h1 {
-                font-size: 1.5em;
+                font-size: 1.9em;
             }
             
             .question h2 {
@@ -366,10 +411,10 @@
                 <div class="question active" id="q1">
                     <h2>Are you a homeowner?</h2>
                     <div class="options">
-                        <div class="option" onclick="selectAnswer('yes', 1)">
+                        <div class="option positive" onclick="selectAnswer('yes', 1)">
                             Yes, I own my home
                         </div>
-                        <div class="option" onclick="selectAnswer('no', 1)">
+                        <div class="option negative" onclick="selectAnswer('no', 1)">
                             No, I rent
                         </div>
                     </div>
@@ -379,10 +424,10 @@
                 <div class="question" id="q2">
                     <h2>Is your home currently insured?</h2>
                     <div class="options">
-                        <div class="option" onclick="selectAnswer('yes', 2)">
+                        <div class="option positive" onclick="selectAnswer('yes', 2)">
                             Yes, I have home insurance
                         </div>
-                        <div class="option" onclick="selectAnswer('no', 2)">
+                        <div class="option negative" onclick="selectAnswer('no', 2)">
                             No, I need new coverage
                         </div>
                     </div>
@@ -392,22 +437,22 @@
                 <div class="question" id="q3">
                     <h2>What is your age group?</h2>
                     <div class="options">
-                        <div class="option" onclick="selectAnswer('18-24', 3)">
+                        <div class="option neutral" onclick="selectAnswer('18-24', 3)">
                             18 to 24
                         </div>
-                        <div class="option" onclick="selectAnswer('25-34', 3)">
+                        <div class="option neutral" onclick="selectAnswer('25-34', 3)">
                             25 to 34
                         </div>
-                        <div class="option" onclick="selectAnswer('35-44', 3)">
+                        <div class="option neutral" onclick="selectAnswer('35-44', 3)">
                             35 to 44
                         </div>
-                        <div class="option" onclick="selectAnswer('45-54', 3)">
+                        <div class="option neutral" onclick="selectAnswer('45-54', 3)">
                             45 to 54
                         </div>
-                        <div class="option" onclick="selectAnswer('55-64', 3)">
+                        <div class="option neutral" onclick="selectAnswer('55-64', 3)">
                             55 to 64
                         </div>
-                        <div class="option" onclick="selectAnswer('65+', 3)">
+                        <div class="option neutral" onclick="selectAnswer('65+', 3)">
                             65+
                         </div>
                     </div>
