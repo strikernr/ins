@@ -1,7 +1,4 @@
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,6 +24,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Save Up to $500 on Auto Insurance - Quick Quote">
     <meta property="twitter:description" content="Compare auto insurance rates and save up to $500/year. Get personalized quotes in 60 seconds.">
+    
     <style>
         * {
             margin: 0;
@@ -42,6 +40,7 @@
             line-height: 1.4;
             margin: 0;
             padding: 0;
+            padding-bottom: 40px;
         }
 
         .header-bar {
@@ -93,6 +92,20 @@
             color: #856404;
             text-align: center;
             font-weight: bold;
+        }
+
+        .mobile-sticky {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #dc3545;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.85em;
+            z-index: 999;
+            font-weight: bold;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
         }
 
         .quiz-container {
@@ -263,6 +276,11 @@
             font-size: 1em;
         }
 
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         @media (max-width: 768px) {
             .container {
                 margin: 10px;
@@ -300,7 +318,7 @@
         </div>
 
         <div class="urgency-text">
-            ⚠️ LIMITED TIME: Subsidy Program Expires Soon - Check Eligibility Now
+            ⚠️ Only 1,247 subsidy spots remaining nationwide
         </div>
 
         <div class="quiz-container">
@@ -373,6 +391,11 @@
         <div class="footer-text">
             © 2025 SmartDailyHacks.com - Auto Insurance Reduction Program
         </div>
+    </div>
+
+    <!-- Mobile Sticky Bar -->
+    <div class="mobile-sticky">
+        ⚠️ 1,247 subsidy spots left | Check your eligibility above ↑
     </div>
 
     <!-- Privacy Policy Modal -->
