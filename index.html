@@ -162,6 +162,97 @@
             font-size: 1.2em;
         }
 
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 1px solid #e8eaed;
+            background: #f8f9fa;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #6c757d;
+            text-decoration: none;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        .footer-text {
+            color: #6c757d;
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .modal h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-right: 40px;
+        }
+
+        .modal p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .modal h3 {
+            color: #2c3e50;
+            margin: 25px 0 15px 0;
+            font-size: 1.2em;
+        }
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -178,6 +269,11 @@
             
             .question-container {
                 padding: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
@@ -250,6 +346,150 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-links">
+            <a href="#" class="footer-link" onclick="openModal('privacyModal')">Privacy Policy</a>
+            <a href="#" class="footer-link" onclick="openModal('termsModal')">Terms of Service</a>
+            <a href="#" class="footer-link" onclick="openModal('disclaimerModal')">Disclaimer</a>
+            <a href="#" class="footer-link" onclick="openModal('contactModal')">Contact Us</a>
+        </div>
+        <div class="footer-text">
+            © 2025 SmartDailyHacks.com - Auto Insurance Reduction Program
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('privacyModal')">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p><strong>Effective Date:</strong> January 1, 2025</p>
+            
+            <h3>Information We Collect</h3>
+            <p>We collect information you provide directly to us, such as when you complete our insurance quiz, including your age group, insurance status, homeowner status, and any other information you choose to provide.</p>
+            
+            <h3>How We Use Your Information</h3>
+            <p>We use the information we collect to:</p>
+            <p>• Connect you with insurance providers that may offer competitive rates<br>
+            • Improve our services and user experience<br>
+            • Comply with legal obligations<br>
+            • Communicate with you about insurance opportunities</p>
+            
+            <h3>Information Sharing</h3>
+            <p>We may share your information with trusted insurance partners and service providers to help you find competitive insurance rates. We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy.</p>
+            
+            <h3>Data Security</h3>
+            <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+            
+            <h3>Your Rights</h3>
+            <p>You have the right to access, update, or delete your personal information. To exercise these rights, please contact us at support@smartdailyhacks.com.</p>
+            
+            <h3>Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy, please contact us at support@smartdailyhacks.com.</p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('termsModal')">&times;</span>
+            <h2>Terms of Service</h2>
+            <p><strong>Effective Date:</strong> January 1, 2025</p>
+            
+            <h3>Acceptance of Terms</h3>
+            <p>By using the Auto Insurance Reduction Program service provided by SmartDailyHacks.com, you agree to be bound by these Terms of Service.</p>
+            
+            <h3>Service Description</h3>
+            <p>Our service helps you compare auto insurance rates by connecting you with insurance providers. We are not an insurance company and do not provide insurance coverage directly.</p>
+            
+            <h3>User Responsibilities</h3>
+            <p>You agree to:</p>
+            <p>• Provide accurate and truthful information<br>
+            • Use the service for personal, non-commercial purposes only<br>
+            • Comply with all applicable laws and regulations<br>
+            • Not misuse or abuse our service</p>
+            
+            <h3>Disclaimers</h3>
+            <p>We do not guarantee that you will receive insurance quotes or coverage. Insurance approval and rates are determined solely by the insurance providers.</p>
+            
+            <h3>Limitation of Liability</h3>
+            <p>To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our service.</p>
+            
+            <h3>Modifications</h3>
+            <p>We reserve the right to modify these terms at any time. Continued use of our service constitutes acceptance of any changes.</p>
+            
+            <h3>Contact Information</h3>
+            <p>For questions about these Terms of Service, contact us at support@smartdailyhacks.com.</p>
+        </div>
+    </div>
+
+    <!-- Disclaimer Modal -->
+    <div id="disclaimerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('disclaimerModal')">&times;</span>
+            <h2>Disclaimer</h2>
+            <p><strong>Effective Date:</strong> January 1, 2025</p>
+            
+            <h3>No Insurance Company</h3>
+            <p>SmartDailyHacks.com is not an insurance company, agent, or broker. We provide a comparison service to help you find potential insurance options.</p>
+            
+            <h3>No Guarantee of Coverage</h3>
+            <p>We cannot guarantee that you will receive insurance quotes, coverage, or any specific rates. All insurance decisions are made solely by the insurance providers.</p>
+            
+            <h3>Accuracy of Information</h3>
+            <p>While we strive to provide accurate information, insurance rates and availability are subject to change. Always verify information directly with insurance providers.</p>
+            
+            <h3>Third-Party Services</h3>
+            <p>Our service may redirect you to third-party insurance providers. We are not responsible for the actions, content, or privacy practices of these third parties.</p>
+            
+            <h3>Personal Financial Decisions</h3>
+            <p>Any insurance decisions you make are your own responsibility. We recommend consulting with qualified insurance professionals before making coverage decisions.</p>
+            
+            <h3>Savings Claims</h3>
+            <p>Potential savings mentioned are examples and not guarantees. Actual savings depend on many factors including your location, driving record, vehicle, and coverage needs.</p>
+            
+            <h3>Contact Us</h3>
+            <p>For questions about this disclaimer, contact us at support@smartdailyhacks.com.</p>
+        </div>
+    </div>
+
+    <!-- Contact Us Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('contactModal')">&times;</span>
+            <h2>Contact Us</h2>
+            <p><strong>Auto Insurance Reduction Program</strong><br>
+            SmartDailyHacks.com</p>
+            
+            <h3>Customer Support</h3>
+            <p><strong>Email:</strong> support@smartdailyhacks.com<br>
+            <strong>Response Time:</strong> Within 24 hours</p>
+            
+            <h3>Business Inquiries</h3>
+            <p><strong>Email:</strong> info@smartdailyhacks.com</p>
+            
+            <h3>Privacy & Data Requests</h3>
+            <p>For privacy-related questions or data requests (access, deletion, updates), please contact:<br>
+            <strong>Email:</strong> privacy@smartdailyhacks.com</p>
+            
+            <h3>Technical Support</h3>
+            <p>If you're experiencing technical issues with our quiz or website:<br>
+            <strong>Email:</strong> tech@smartdailyhacks.com</p>
+            
+            <h3>Mailing Address</h3>
+            <p>SmartDailyHacks.com<br>
+            Auto Insurance Reduction Program<br>
+            [Your Business Address]<br>
+            [City, State, ZIP Code]</p>
+            
+            <h3>Hours of Operation</h3>
+            <p><strong>Customer Support:</strong> Monday - Friday, 9:00 AM - 6:00 PM EST<br>
+            <strong>Email Support:</strong> 24/7 (responses within 24 hours)</p>
+            
+            <p><em>We're committed to helping you find the best auto insurance rates. Don't hesitate to reach out with any questions!</em></p>
         </div>
     </div>
 
@@ -342,11 +582,46 @@
             
             if (variation === 'B') {
                 document.getElementById('headline').innerHTML = 'I Cut My Car Insurance From $205 to $29/Month';
-                document.getElementById('subheadline').innerHTML = 'Find out how much you could save in 60 seconds.';
+                document.getElementById('subheadline').innerHTML = 'See if you qualify for subsidy rate with this 60-second quick quiz.';
             } else {
                 // Default to Variation A
-                document.getElementById('headline').innerHTML = 'My Car Insurance Dropped From $180 to $28/Month';
-                document.getElementById('subheadline').innerHTML = 'See if you qualify for subsidy rate with this 60-second quick quiz.';
+                document.getElementById('headline').innerHTML = 'My Car Insurance Dropped From $180 to $31/Month';
+                document.getElementById('subheadline').innerHTML = 'See what your rate could be with this quick quiz.';
+            }
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            console.log('Trying to open modal:', modalId);
+            const modal = document.getElementById(modalId);
+            
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                console.log('Modal opened successfully');
+            } else {
+                console.error('Modal not found:', modalId);
+            }
+        }
+
+        function closeModal(modalId) {
+            console.log('Trying to close modal:', modalId);
+            const modal = document.getElementById(modalId);
+            
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                console.log('Modal closed successfully');
+            } else {
+                console.error('Modal not found for closing:', modalId);
+            }
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
         }
 
