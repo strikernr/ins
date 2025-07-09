@@ -195,73 +195,102 @@
         }
 
         .option {
-            padding: 15px 20px;
+            padding: 18px 25px;
             border: 2px solid #ddd;
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 1em;
-            font-weight: normal;
+            transition: all 0.3s ease;
+            font-size: 1.05em;
+            font-weight: 500;
             color: #333;
             text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
         }
 
         /* Green for positive answers (Yes, Homeowner, etc.) - DEFAULT STATE */
         .option.positive {
-            background: #d4edda;
+            background: linear-gradient(145deg, #d4edda, #c3e6cb);
             border-color: #28a745;
             color: #155724;
+            box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
         }
 
         .option.positive:hover {
-            background: #c3e6cb;
+            background: linear-gradient(145deg, #c3e6cb, #b1dfbb);
             border-color: #1e7e34;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(40, 167, 69, 0.3);
+        }
+
+        .option.positive:active {
+            transform: translateY(0px);
+            box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
         }
 
         .option.positive.selected {
-            background: #28a745;
+            background: linear-gradient(145deg, #28a745, #1e7e34);
             border-color: #1e7e34;
             color: white;
-            font-weight: 500;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
         }
 
         /* Red for negative answers (No, Renter, etc.) - DEFAULT STATE */
         .option.negative {
-            background: #f8d7da;
+            background: linear-gradient(145deg, #f8d7da, #f1b0b7);
             border-color: #dc3545;
             color: #721c24;
+            box-shadow: 0 3px 6px rgba(220, 53, 69, 0.2);
         }
 
         .option.negative:hover {
-            background: #f1b0b7;
+            background: linear-gradient(145deg, #f1b0b7, #ec8794);
             border-color: #bd2130;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(220, 53, 69, 0.3);
+        }
+
+        .option.negative:active {
+            transform: translateY(0px);
+            box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
         }
 
         .option.negative.selected {
-            background: #dc3545;
+            background: linear-gradient(145deg, #dc3545, #bd2130);
             border-color: #bd2130;
             color: white;
-            font-weight: 500;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(220, 53, 69, 0.4);
         }
 
-        /* Age options - change to green like positive options */
+        /* Age options - green like positive options */
         .option.neutral {
-            background: #d4edda;
+            background: linear-gradient(145deg, #d4edda, #c3e6cb);
             border-color: #28a745;
             color: #155724;
+            box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
         }
 
         .option.neutral:hover {
-            background: #c3e6cb;
+            background: linear-gradient(145deg, #c3e6cb, #b1dfbb);
             border-color: #1e7e34;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(40, 167, 69, 0.3);
+        }
+
+        .option.neutral:active {
+            transform: translateY(0px);
+            box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
         }
 
         .option.neutral.selected {
-            background: #28a745;
+            background: linear-gradient(145deg, #28a745, #1e7e34);
             border-color: #1e7e34;
             color: white;
-            font-weight: 500;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
         }
 
         .footer {
