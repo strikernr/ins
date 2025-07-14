@@ -148,19 +148,6 @@
             margin-bottom: 20px;
         }
 
-        .progress-bar {
-            height: 4px;
-            background: #ddd;
-            position: relative;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: #28a745;
-            width: 33%;
-            transition: width 0.3s ease;
-        }
-
         .question-container {
             padding: 30px 25px;
             min-height: 300px;
@@ -432,10 +419,6 @@
         </div>
 
         <div class="quiz-container">
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-
             <div class="question-container">
                 <!-- Question 1 -->
                 <div class="question active" id="q1">
@@ -452,37 +435,24 @@
 
                 <!-- Question 2 -->
                 <div class="question" id="q2">
-                    <h2>Is your home currently insured?</h2>
-                    <div class="options">
-                        <div class="option positive" onclick="selectAnswer('yes', 2)">
-                            Yes, I have home insurance
-                        </div>
-                        <div class="option negative" onclick="selectAnswer('no', 2)">
-                            No, I need new coverage
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Question 3 -->
-                <div class="question" id="q3">
                     <h2>What is your age group?</h2>
                     <div class="options">
-                        <div class="option neutral" onclick="selectAnswer('18-24', 3)">
+                        <div class="option neutral" onclick="selectAnswer('18-24', 2)">
                             18 to 24
                         </div>
-                        <div class="option neutral" onclick="selectAnswer('25-34', 3)">
+                        <div class="option neutral" onclick="selectAnswer('25-34', 2)">
                             25 to 34
                         </div>
-                        <div class="option neutral" onclick="selectAnswer('35-44', 3)">
+                        <div class="option neutral" onclick="selectAnswer('35-44', 2)">
                             35 to 44
                         </div>
-                        <div class="option neutral" onclick="selectAnswer('45-54', 3)">
+                        <div class="option neutral" onclick="selectAnswer('45-54', 2)">
                             45 to 54
                         </div>
-                        <div class="option neutral" onclick="selectAnswer('55-64', 3)">
+                        <div class="option neutral" onclick="selectAnswer('55-64', 2)">
                             55 to 64
                         </div>
-                        <div class="option neutral" onclick="selectAnswer('65+', 3)">
+                        <div class="option neutral" onclick="selectAnswer('65+', 2)">
                             65+
                         </div>
                     </div>
@@ -685,8 +655,6 @@
                 if (questionNum === 1) {
                     goToQuestion2();
                 } else if (questionNum === 2) {
-                    goToQuestion3();
-                } else if (questionNum === 3) {
                     finishQuiz(answer);
                 }
             }, 500);
@@ -696,14 +664,6 @@
             console.log('Going to question 2');
             document.getElementById('q1').classList.remove('active');
             document.getElementById('q2').classList.add('active');
-            document.getElementById('progressFill').style.width = '66%';
-        }
-
-        function goToQuestion3() {
-            console.log('Going to question 3');
-            document.getElementById('q2').classList.remove('active');
-            document.getElementById('q3').classList.add('active');
-            document.getElementById('progressFill').style.width = '100%';
         }
 
         function finishQuiz(ageGroup) {
